@@ -68,6 +68,56 @@ window.addEventListener('DOMContentLoaded', function () {
     totalValue.value = total;
   });
 
+  counterBlock.addEventListener('change', () => {
+    counterHours.value = '';
+    counterRate.value = '';
+    total = counterBlock.value * blocks;
+    totalValue.value = total;
+  });
+  counterPages.addEventListener('change', () => {
+    counterHours.value = '';
+    counterRate.value = '';
+    total = counterPages.value * pages;
+    totalValue.value = total;
+  });
 
+  counterHours.addEventListener('change', () => {
+    counterBlock.value = '';
+    counterPages.value = '';
+    total = 0;
+    time = counterHours.value;
+    hourRate = time * counterRate.value;
+    totalValue.value = hourRate;
+    total = hourRate;
+  });
+
+  counterRate.addEventListener('change', () => {
+    counterBlock.value = '';
+    counterPages.value = '';
+    total = 0;
+    hourRate = time * counterRate.value;
+    totalValue.value = hourRate;
+    total = hourRate;
+  });
+
+  changesCheck.addEventListener('change', () => {
+    if (changesCheck.checked) {
+      total += changes;
+      totalValue.value = total;
+    } else {
+      total -= changes;
+      totalValue.value = total;
+    }
+  });
+
+  changesCms.addEventListener('change', () => {
+    if (changesCms.checked) {
+      total += cms;
+      totalValue.value = total;
+    } else {
+      total -= cms;
+      totalValue.value = total;
+    }
+  });
 
 });
